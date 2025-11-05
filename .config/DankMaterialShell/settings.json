@@ -1,0 +1,246 @@
+{
+  "currentThemeName": "cat-green",
+  "customThemeFile": "",
+  "matugenScheme": "scheme-tonal-spot",
+  "runUserMatugenTemplates": true,
+  "dankBarTransparency": 0.85,
+  "dankBarWidgetTransparency": 0.85,
+  "popupTransparency": 0.85,
+  "dockTransparency": 0.85,
+  "use24HourClock": true,
+  "showSeconds": false,
+  "useFahrenheit": true,
+  "nightModeEnabled": false,
+  "weatherLocation": "Eastover, North Carolina",
+  "weatherCoordinates": "35.0992190,-78.7882955",
+  "useAutoLocation": false,
+  "weatherEnabled": true,
+  "showLauncherButton": true,
+  "showWorkspaceSwitcher": true,
+  "showFocusedWindow": true,
+  "showWeather": true,
+  "showMusic": true,
+  "showClipboard": true,
+  "showCpuUsage": true,
+  "showMemUsage": true,
+  "showCpuTemp": true,
+  "showGpuTemp": true,
+  "selectedGpuIndex": 0,
+  "enabledGpuPciIds": [],
+  "showSystemTray": true,
+  "showClock": true,
+  "showNotificationButton": true,
+  "showBattery": true,
+  "showControlCenterButton": true,
+  "controlCenterShowNetworkIcon": true,
+  "controlCenterShowBluetoothIcon": true,
+  "controlCenterShowAudioIcon": true,
+  "controlCenterWidgets": [
+    {
+      "id": "volumeSlider",
+      "enabled": true,
+      "width": 50
+    },
+    {
+      "id": "brightnessSlider",
+      "enabled": true,
+      "width": 50
+    },
+    {
+      "id": "wifi",
+      "enabled": true,
+      "width": 50
+    },
+    {
+      "id": "bluetooth",
+      "enabled": true,
+      "width": 50
+    },
+    {
+      "id": "audioOutput",
+      "enabled": true,
+      "width": 50
+    },
+    {
+      "id": "audioInput",
+      "enabled": true,
+      "width": 50
+    },
+    {
+      "id": "nightMode",
+      "enabled": true,
+      "width": 50
+    },
+    {
+      "id": "darkMode",
+      "enabled": true,
+      "width": 50
+    }
+  ],
+  "showWorkspaceIndex": false,
+  "workspaceScrolling": false,
+  "showWorkspacePadding": true,
+  "showWorkspaceApps": true,
+  "maxWorkspaceIcons": 4,
+  "workspacesPerMonitor": false,
+  "workspaceNameIcons": {},
+  "waveProgressEnabled": true,
+  "clockCompactMode": false,
+  "focusedWindowCompactMode": false,
+  "runningAppsCompactMode": true,
+  "runningAppsCurrentWorkspace": false,
+  "runningAppsGroupByApp": false,
+  "clockDateFormat": "",
+  "lockDateFormat": "",
+  "mediaSize": 1,
+  "dankBarLeftWidgets": [
+    "launcherButton",
+    "workspaceSwitcher",
+    "focusedWindow"
+  ],
+  "dankBarCenterWidgets": [
+    "music",
+    "clock",
+    "weather"
+  ],
+  "dankBarRightWidgets": [
+    "systemTray",
+    "clipboard",
+    "cpuUsage",
+    {
+      "id": "memUsage",
+      "enabled": true
+    },
+    "notificationButton",
+    "controlCenterButton",
+    {
+      "id": "systemUpdate",
+      "enabled": true
+    }
+  ],
+  "appLauncherViewMode": "list",
+  "spotlightModalViewMode": "list",
+  "sortAppsAlphabetically": true,
+  "networkPreference": "auto",
+  "iconTheme": "System Default",
+  "launcherLogoMode": "os",
+  "launcherLogoCustomPath": "",
+  "launcherLogoColorOverride": "",
+  "launcherLogoColorInvertOnMode": false,
+  "launcherLogoBrightness": 0.5,
+  "launcherLogoContrast": 1,
+  "launcherLogoSizeOffset": 4,
+  "fontFamily": "Inter Variable",
+  "monoFontFamily": "Fira Code",
+  "fontWeight": 400,
+  "fontScale": 1,
+  "dankBarFontScale": 1,
+  "notepadUseMonospace": true,
+  "notepadFontFamily": "",
+  "notepadFontSize": 14,
+  "notepadShowLineNumbers": false,
+  "notepadTransparencyOverride": -1,
+  "notepadLastCustomTransparency": 0.7,
+  "soundsEnabled": true,
+  "useSystemSoundTheme": false,
+  "soundNewNotification": true,
+  "soundVolumeChanged": true,
+  "soundPluggedIn": true,
+  "gtkThemingEnabled": false,
+  "qtThemingEnabled": false,
+  "syncModeWithPortal": true,
+  "showDock": true,
+  "dockAutoHide": false,
+  "dockGroupByApp": true,
+  "dockOpenOnOverview": false,
+  "dockPosition": 1,
+  "dockSpacing": 8,
+  "dockBottomGap": -16,
+  "dockIconSize": 48,
+  "dockIndicatorStyle": "circle",
+  "cornerRadius": 12,
+  "notificationOverlayEnabled": false,
+  "dankBarAutoHide": false,
+  "dankBarOpenOnOverview": false,
+  "dankBarVisible": true,
+  "dankBarSpacing": 4,
+  "dankBarBottomGap": 0,
+  "dankBarInnerPadding": 4,
+  "dankBarSquareCorners": false,
+  "dankBarNoBackground": false,
+  "dankBarGothCornersEnabled": false,
+  "dankBarBorderEnabled": false,
+  "dankBarBorderColor": "primary",
+  "dankBarBorderOpacity": 0.85,
+  "dankBarBorderThickness": 2,
+  "popupGapsAuto": true,
+  "popupGapsManual": 4,
+  "dankBarPosition": 0,
+  "lockScreenShowPowerActions": false,
+  "enableFprint": false,
+  "maxFprintTries": 3,
+  "hideBrightnessSlider": false,
+  "widgetBackgroundColor": "sch",
+  "surfaceBase": "s",
+  "wallpaperFillMode": "Fill",
+  "notificationTimeoutLow": 5000,
+  "notificationTimeoutNormal": 5000,
+  "notificationTimeoutCritical": 0,
+  "notificationPopupPosition": 0,
+  "osdAlwaysShowValue": false,
+  "powerActionConfirm": true,
+  "customPowerActionLock": "",
+  "customPowerActionLogout": "",
+  "customPowerActionSuspend": "",
+  "customPowerActionHibernate": "",
+  "customPowerActionReboot": "",
+  "customPowerActionPowerOff": "",
+  "updaterUseCustomCommand": true,
+  "updaterCustomCommand": "paru -Syu",
+  "updaterTerminalAdditionalParams": "",
+  "screenPreferences": {
+    "dankBar": [
+      "DP-3"
+    ],
+    "dock": [
+      "DP-3"
+    ],
+    "notifications": [
+      "DP-3"
+    ],
+    "osd": [
+      "DP-3"
+    ],
+    "toast": [
+      "DP-3"
+    ],
+    "notepad": [
+      "DP-3"
+    ],
+    "systemTray": [
+      "DP-3"
+    ]
+  },
+  "showOnLastDisplay": {
+    "dankBar": true,
+    "dock": true,
+    "notifications": true,
+    "osd": true,
+    "toast": true
+  },
+  "animationSpeed": 1,
+  "customAnimationDuration": 500,
+  "acMonitorTimeout": 0,
+  "acLockTimeout": 0,
+  "acSuspendTimeout": 0,
+  "acHibernateTimeout": 0,
+  "batteryMonitorTimeout": 0,
+  "batteryLockTimeout": 0,
+  "batterySuspendTimeout": 0,
+  "batteryHibernateTimeout": 0,
+  "lockBeforeSuspend": false,
+  "loginctlLockIntegration": true,
+  "launchPrefix": "",
+  "brightnessDevicePins": {},
+  "configVersion": 1
+}

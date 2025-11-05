@@ -1,0 +1,4 @@
+pane	default	1	1	:*	0	~	:/home/phyxashun	0	fish	:fish
+pane	default	1	1	:*	1	~	:/home/phyxashun	1	fish	:fish
+window	default	1	:fish	1	:*	baf2,168x63,0,0[168x31,0,0,1,168x31,0,32,2]	:
+state	default	

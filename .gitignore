@@ -1,0 +1,21 @@
+# Security
+.ssh/
+.gnupg/
+secrets.json
+login.json
+credentials.json
+api_keys.json
+tokens.json
+
+# Cache / State
+.cache/
+.local/state/
+.local/share/keyrings/
+
+# Misc
+*.swp
+*.bak
+*.old
+.DS_Store
+Thumbs.db
+

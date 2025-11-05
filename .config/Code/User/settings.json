@@ -1,0 +1,12 @@
+{
+    "workbench.colorTheme": "Best Themes - Gruvbox Concoctis Dark",
+    "workbench.iconTheme": "gruvbox-material-icon-theme",
+    "workbench.productIconTheme": "macos-modern",
+    "terminal.integrated.fontFamily": "'FiraCode Nerd Font', monospace",
+    "editor.fontFamily": "'FiraCode Nerd Font', monospace",
+    "editor.fontSize": 16,
+    "editor.fontLigatures": true,
+    "git.enableSmartCommit": true,
+    "git.autofetch": true,
+    "git.confirmSync": false
+}

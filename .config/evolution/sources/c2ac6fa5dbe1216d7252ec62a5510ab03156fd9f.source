@@ -1,0 +1,29 @@
+[Data Source]
+DisplayName=phyxashun@gmail.com
+Enabled=true
+Parent=5661530e6a1003d08f672e1e5bcb977a2d68ed90
+
+[Mail Submission]
+SentFolder=folder://local/Sent
+TransportUid=2a57e1e3a54b71bc45236f35f3a8e822a02dc788
+RepliesToOriginFolder=false
+UseSentFolder=true
+
+[Mail Composition]
+Bcc=
+Cc=
+DraftsFolder=folder://local/Drafts
+ReplyStyle=default
+SignImip=true
+TemplatesFolder=
+StartBottom=inconsistent
+TopSignature=inconsistent
+Language=
+
+[Mail Identity]
+Address=phyxashun@gmail.com
+Aliases=
+Name=
+Organization=
+ReplyTo=
+SignatureUid=none

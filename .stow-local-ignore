@@ -1,0 +1,39 @@
+# ~/.dotfiles/.stow-local-ignore
+# Global ignore patterns for GNU Stow packages.
+# Prevents symlinking sensitive files or local junk.
+
+# Version control
+\.git
+\.gitignore
+\.gitattributes
+
+# Meta
+README.md
+LICENSE
+misc
+
+# Shells & terminals
+^/.*\.bash*
+^/.*\.zsh*
+^/.*\.profile
+^/.*\.bashrc
+^/.*\.bash_profile
+
+# Sensitive directories
+\.ssh
+\.gnupg
+\.cache
+\.local/share/keyrings
+\.local/stat
+
+# Sensitive files
+secrets.json
+login.json
+credentials.json
+api_keys.json
+tokens.json
+
+# Notes / personal
+^/.*\.org
+^/.*\.md~
+^/.*\.swp

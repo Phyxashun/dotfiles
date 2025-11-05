@@ -1,0 +1,3 @@
+pane	default	1	1	:*	0	~/.t/resurrect	:/home/phyxashun/.tmux/resurrect	1	fish	:fish
+window	default	1	:fish	1	:*	c99f,50x87,0,0,2	:
+state	default	

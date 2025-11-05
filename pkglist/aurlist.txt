@@ -1,0 +1,9 @@
+dgop-bin
+dgop-bin-debug
+dms-shell-bin
+dms-shell-bin-debug
+google-breakpad
+matugen-bin
+matugen-bin-debug
+paru-debug
+python-pywalfox

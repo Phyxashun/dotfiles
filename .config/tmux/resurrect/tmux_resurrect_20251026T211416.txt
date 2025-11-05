@@ -1,0 +1,5 @@
+pane	default	1	1	:*	0	~/.c/t/p/catppuccin-tmux	:/home/phyxashun/.config/tmux/plugins/catppuccin-tmux	1	fish	:fish
+pane	main	1	1	:*	0	~	:/home/phyxashun	1	fish	:/usr/bin/fish
+window	default	1	:fish	1	:*	cf7e,129x48,0,0,1	:
+window	main	1	:fish	1	:*	cf7d,129x48,0,0,0	:
+state	default	main
