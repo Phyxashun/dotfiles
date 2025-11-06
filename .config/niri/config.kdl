@@ -2,9 +2,26 @@
     Niri Configuration File
     For documentation, see https://github.com/YaLTeR/niri/wiki/Configuration:-Introduction
 */
+
+// ============================================================================
+// META CONFIGURATION
+// ============================================================================
+
 config-notification { 
     disable-failed 
 }
+
+hotkey-overlay {
+    skip-at-startup
+}
+
+prefer-no-csd
+
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+// ============================================================================
+// DISPLAY OUTPUTS
+// ============================================================================
 
 output "Samsung Electric Company S34CG50 HNTX100328" {
     mode "3440x1440@100.000"
@@ -13,6 +30,7 @@ output "Samsung Electric Company S34CG50 HNTX100328" {
     position x=0 y=0
     focus-at-startup
 }
+
 output "Samsung Electric Company S24E200 HCHJ702365" {
     mode "1920x1080@60.000"
     scale 1
@@ -20,11 +38,9 @@ output "Samsung Electric Company S24E200 HCHJ702365" {
     position x=-1080 y=0
 }
 
-gestures {
-    hot-corners {
-        off
-    }
-}
+// ============================================================================
+// INPUT DEVICES
+// ============================================================================
 
 input {
     keyboard {
@@ -40,6 +56,38 @@ input {
     }
     mod-key "Super"
 }
+
+gestures {
+    hot-corners {
+        off
+    }
+}
+
+// ============================================================================
+// ENVIRONMENT VARIABLES
+// ============================================================================
+
+environment {
+    XDG_CURRENT_DESKTOP "niri"
+    QT_QPA_PLATFORM "wayland"
+    ELECTRON_OZONE_PLATFORM_HINT "auto"
+    QT_QPA_PLATFORMTHEME "gtk3"
+    QT_QPA_PLATFORMTHEME_QT6 "gtk3"
+    TERMINAL "ghostty"
+}
+
+// ============================================================================
+// STARTUP APPLICATIONS
+// ============================================================================
+
+spawn-at-startup "bash" "-c" "wl-paste --watch cliphist store &"
+spawn-at-startup "dms" "run"
+spawn-at-startup "/usr/lib/mate-polkit/polkit-mate-authentication-agent-1"
+spawn-at-startup "niriusd"
+
+// ============================================================================
+// LAYOUT & APPEARANCE
+// ============================================================================
 
 layout {
     gaps 5
@@ -73,36 +121,95 @@ layout {
     }  
 }
 
+// ============================================================================
+// LAYER RULES
+// ============================================================================
+
 layer-rule {
     match namespace="^quickshell$"
     place-within-backdrop true
 }
 
-overview {
-    workspace-shadow {
-        off
-    }
+// ============================================================================
+// WINDOW RULES
+// ============================================================================
+
+// --- Terminal Applications ---
+window-rule {
+    match app-id=r#"^org\.wezfurlong\.wezterm$"#
+    default-column-width {}
 }
 
-spawn-at-startup "bash" "-c" "wl-paste --watch cliphist store &"
-spawn-at-startup "dms" "run"
-spawn-at-startup "/usr/lib/mate-polkit/polkit-mate-authentication-agent-1"
-
-environment {
-    XDG_CURRENT_DESKTOP "niri"
-    QT_QPA_PLATFORM "wayland"
-    ELECTRON_OZONE_PLATFORM_HINT "auto"
-    QT_QPA_PLATFORMTHEME "gtk3"
-    QT_QPA_PLATFORMTHEME_QT6 "gtk3"
-    TERMINAL "ghostty"
+window-rule {
+    match app-id=r#"^org\.wezfurlong\.wezterm$"#
+    match app-id="Alacritty"
+    match app-id="zen"
+    match app-id="com.mitchellh.ghostty"
+    match app-id="kitty"
+    draw-border-with-background false
 }
 
-hotkey-overlay {
-    skip-at-startup
+// --- GNOME Applications ---
+window-rule {
+    match app-id=r#"^org\.gnome\."#
+    draw-border-with-background false
+    geometry-corner-radius 12
+    clip-to-geometry true
 }
-prefer-no-csd
 
-screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+window-rule {
+    match app-id=r#"^gnome-control-center$"#
+    match app-id=r#"^pavucontrol$"#
+    match app-id=r#"^nm-connection-editor$"#
+    default-column-width { proportion 0.5; }
+    open-floating false
+}
+
+// --- Floating Applications ---
+window-rule {
+    match app-id=r#"^gnome-calculator$"#
+    match app-id=r#"^galculator$"#
+    match app-id=r#"^blueman-manager$"#
+    match app-id=r#"^org\.gnome\.Nautilus$"#
+    match app-id=r#"^steam$"#
+    match app-id=r#"^xdg-desktop-portal$"#
+    open-floating true
+}
+
+window-rule {
+    match app-id="Geary"
+    default-column-width { proportion 0.33333; }
+    default-window-height { proportion 0.7; }
+    open-floating true
+}
+
+// --- Browser-Specific ---
+window-rule {
+    match app-id=r#"firefox$"#
+    open-on-output "Samsung Electric Company S24E200 HCHJ702365"
+    default-column-width { proportion 1.0; }
+}
+
+window-rule {
+    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    match app-id="zoom"
+    open-floating true
+}
+
+// --- Global Rules (Applied Last) ---
+window-rule { 
+    match is-active=false
+    opacity 0.9
+}
+
+window-rule {
+    geometry-corner-radius 12
+    clip-to-geometry true
+}
+
+// ============================================================================
+// ANIMATIONS
+// ============================================================================
 
 animations {
     workspace-switch {
@@ -137,73 +244,19 @@ animations {
     }
 }
 
-window-rule {
-    match app-id=r#"^org\.wezfurlong\.wezterm$"#
-    default-column-width {}
+// ============================================================================
+// UI FEATURES
+// ============================================================================
+
+overview {
+    workspace-shadow {
+        off
+    }
 }
 
-window-rule {
-    match app-id="Geary"
-    default-column-width { proportion 0.33333; }
-    default-window-height { proportion 0.7; }
-    open-floating true
-}
-
-window-rule {
-    match app-id=r#"^org\.gnome\."#
-    draw-border-with-background false
-    geometry-corner-radius 12
-    clip-to-geometry true
-}
-
-window-rule {
-    match app-id=r#"^gnome-control-center$"#
-    match app-id=r#"^pavucontrol$"#
-    match app-id=r#"^nm-connection-editor$"#
-    default-column-width { proportion 0.5; }
-    open-floating false
-}
-
-window-rule {
-    match app-id=r#"^gnome-calculator$"#
-    match app-id=r#"^galculator$"#
-    match app-id=r#"^blueman-manager$"#
-    match app-id=r#"^org\.gnome\.Nautilus$"#
-    match app-id=r#"^steam$"#
-    match app-id=r#"^xdg-desktop-portal$"#
-    open-floating true
-}
-
-window-rule {
-    match app-id=r#"^org\.wezfurlong\.wezterm$"#
-    match app-id="Alacritty"
-    match app-id="zen"
-    match app-id="com.mitchellh.ghostty"
-    match app-id="kitty"
-    draw-border-with-background false
-}
-
-window-rule { 
-    match is-active=false
-    opacity 0.9
-}
-
-window-rule {
-    match app-id=r#"firefox$"#
-    open-on-output "Samsung Electric Company S24E200 HCHJ702365"
-    default-column-width { proportion 1.0; }
-}
-
-window-rule {
-    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
-    match app-id="zoom"
-    open-floating true
-}
-
-window-rule {
-    geometry-corner-radius 12
-    clip-to-geometry true
-}
+// ============================================================================
+// KEYBINDINGS
+// ============================================================================
 
 binds {
     // === System & Overview ===
@@ -304,6 +357,7 @@ binds {
     Mod+Ctrl+End  { move-column-to-last; }
     
     // === Monitor Navigation ===
+    // Mod+Ctrl+HJKL/Arrows - Focus monitor
     Mod+Ctrl+Left  { focus-monitor-left; }
     //Mod+Ctrl+Down  { focus-monitor-down; }
     //Mod+Ctrl+Up    { focus-monitor-up; }
@@ -314,6 +368,7 @@ binds {
     Mod+Ctrl+L     { focus-monitor-right; }
     
     // === Move to Monitor ===
+    // Mod+Shift+Ctrl+HJKL/Arrows - Move window to monitor
     Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
     Mod+Shift+Ctrl+Down  { move-column-to-monitor-down; }
     Mod+Shift+Ctrl+Up    { move-column-to-monitor-up; }
@@ -403,10 +458,16 @@ binds {
     Print { screenshot; }    
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
+    
     // === System Controls ===
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
     Mod+Shift+P { power-off-monitors; }
 }
+
+// ============================================================================
+// DEBUG SETTINGS
+// ============================================================================
+
 debug {
     honor-xdg-activation-with-invalid-serial
-}    
+}
