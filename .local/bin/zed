@@ -6,15 +6,16 @@ zed &
 # Wait a moment for the window to appear
 sleep 0.5
 
-# Set the window to the desired temporary large width (e.g., 1200 pixels) and a specific height (e.g. 800)
-# The --id $(niri msg windows -j | jq -r '.[] | select(.app_id == "zed") | .id') part targets the specific Zed window
-# Note: You may need to install 'jq' for this to work
-niri msg set-window-width fixed 1200 --id $(niri msg windows -j | jq -r '.[] | select(.app_id == "zed") | .id')
-niri msg set-window-height fixed 800 --id $(niri msg windows -j | jq -r '.[] | select(.app_id == "zed") | .id')
+# Get the Zed window ID
+ZED_ID=$(niri msg --json windows | jq -r '.[] | select(.app_id == "zed") | .id')
+
+# Set the window to the desired temporary large width (e.g., 1200 pixels) and height (e.g. 800)
+niri msg action set-window-width --window-id "$ZED_ID" fixed 1200
+niri msg action set-window-height --window-id "$ZED_ID" fixed 800
 
 # Wait another moment to show the temporary size
 sleep 1
 
-# Reset the window height and width back to automatic/default (niri's tiling layout handles this)
-niri msg set-window-width --id $(niri msg windows -j | jq -r '.[] | select(.app_id == "zed") | .id')
-niri msg set-window-height --id $(niri msg windows -j | jq -r '.[] | select(.app_id == "zed") | .id')
+# Reset the window height and width back to automatic/default
+niri msg action set-window-width --window-id "$ZED_ID" auto
+niri msg action set-window-height --window-id "$ZED_ID" auto
