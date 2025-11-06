@@ -8,5 +8,6 @@
     "editor.fontLigatures": true,
     "git.enableSmartCommit": true,
     "git.autofetch": true,
-    "git.confirmSync": false
+    "git.confirmSync": false,
+    "explorer.confirmDelete": false
 }
