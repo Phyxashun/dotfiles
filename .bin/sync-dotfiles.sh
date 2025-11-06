@@ -2,6 +2,8 @@
 
 # Sync dotfiles repo and ensure that dotfiles are tangled correctly afterward
 
+BRANCH="main"
+
 GREEN='\033[1;32m'
 BLUE='\033[1;34m'
 RED='\033[1;30m'
@@ -20,7 +22,7 @@ fi
 
 echo -e "${BLUE}Pulling updates from dotfiles repo...${NC}"
 echo
-git pull origin master
+git pull origin $BRANCH
 echo
 
 if [[ $needs_pop -eq 1 ]]; then
