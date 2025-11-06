@@ -1,24 +1,33 @@
-#!/usr/bin/env fish
+#!/bin/sh
 # Path to dotfiles repo (adjust if needed)
-set DOTFILES_DIR ~/.dotfiles
-set README_FILE $DOTFILES_DIR/README.md
+DOTFILES_DIR="$HOME/.dotfiles"
+README_FILE="$DOTFILES_DIR/README.md"
 
 # Ignore list
-set IGNORE_LIST ".git" "misc" ".stow-local-ignore"
+IGNORE_LIST=".git misc .stow-local-ignore"
 
 # Collect top-level directories excluding ignored files/folders
-set PACKAGES
-for d in $DOTFILES_DIR/*
-    if test -d $d
-        set name (basename $d)
-        if not contains $name $IGNORE_LIST
-            set PACKAGES $PACKAGES $name
-        end
-    end
-end
+PACKAGES=""
+for d in "$DOTFILES_DIR"/*; do
+    if [ -d "$d" ]; then
+        name=$(basename "$d")
+        # Check if name is in ignore list
+        skip=0
+        for ignore in $IGNORE_LIST; do
+            if [ "$name" = "$ignore" ]; then
+                skip=1
+                break
+            fi
+        done
+        if [ $skip -eq 0 ]; then
+            PACKAGES="$PACKAGES $name"
+        fi
+    fi
+done
 
 # Start writing README
-echo "# Phyxashun's Dotfiles
+cat > "$README_FILE" << 'EOF'
+# Phyxashun's Dotfiles
 
 [![Arch Linux](https://img.shields.io/badge/OS-Arch%20Linux-blue?logo=archlinux)](https://archlinux.org)  
 [![Fish Shell](https://img.shields.io/badge/Shell-Fish-4EAA25?logo=fishshell)](https://fishshell.com)  
@@ -31,75 +40,78 @@ echo "# Phyxashun's Dotfiles
 ## Packages / Configurations
 
 | Package | Description |
-|---------|-------------|" > $README_FILE
+|---------|-------------|
+EOF
 
 # Add each package to the table
-for pkg in $PACKAGES
-    set DESC "Auto-detected package folder"
+for pkg in $PACKAGES; do
+    DESC="Auto-detected package folder"
     # Check for description.txt
-    if test -f $DOTFILES_DIR/$pkg/description.txt
-        set DESC (string trim (cat $DOTFILES_DIR/$pkg/description.txt))
+    if [ -f "$DOTFILES_DIR/$pkg/description.txt" ]; then
+        DESC=$(cat "$DOTFILES_DIR/$pkg/description.txt" | tr -d '\n' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
     # Check for README.md inside the package
-    else if test -f $DOTFILES_DIR/$pkg/README.md
-        set DESC (string trim (head -n 1 $DOTFILES_DIR/$pkg/README.md))
-    end
-    echo "| $pkg | $DESC |" >> $README_FILE
-end
+    elif [ -f "$DOTFILES_DIR/$pkg/README.md" ]; then
+        DESC=$(head -n 1 "$DOTFILES_DIR/$pkg/README.md" | tr -d '\n' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
+    fi
+    echo "| $pkg | $DESC |" >> "$README_FILE"
+done
 
 # Append the rest of README content
-echo "
+cat >> "$README_FILE" << 'EOF'
+
 ---
 
 ## Setup Instructions
 
 ### Clone the repository
 
-\`\`\`fish
+```sh
 git clone git@github.com:Phyxashun/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
-\`\`\`
+```
 
 ### Install prerequisites
 
-\`\`\`fish
+```sh
 sudo pacman -S git stow fish starship neovim tmux bat btop
 # Add any other tools you use (Niri, Ghostty, VSCode, etc.)
-\`\`\`
+```
 
 ### Apply dotfiles using Stow
 
-\`\`\`fish
+```sh
 stow -vt ~ */
 # Or specific packages:
 stow -vt ~ fish nvim tmux starship
-\`\`\`
+```
 
 ### Optional: Restore dconf (if used)
 
-\`\`\`fish
+```sh
 dconf load / < ~/.dotfiles/dconf/.config/dconf/user.conf
-\`\`\`
+```
 
 ---
 
 ## Updating & Syncing
 
-\`\`\`fish
+```sh
 cd ~/.dotfiles
 git add .
-git commit -m \"describe changes\"
+git commit -m "describe changes"
 git push origin main
 
 # On a new machine:
 cd ~/.dotfiles
 git pull origin main
 stow -vt ~ */
-\`\`\`
+```
 
 ---
 
 ## License
 
-MIT License — see [LICENSE](LICENSE) for details." >> $README_FILE
+MIT License — see [LICENSE](LICENSE) for details.
+EOF
 
 echo "README.md generated at $README_FILE"
