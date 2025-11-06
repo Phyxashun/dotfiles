@@ -112,10 +112,12 @@ layout {
         inactive-color "#505050"
     }
     shadow {
+        on
         softness 30
-        spread 5
-        offset x=0 y=5
-        color "#0007"
+        spread 10
+        offset x=5 y=5
+        color "#000000e0"
+        inactive-color "#000000e0"
     }
     struts {
     }  

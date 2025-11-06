@@ -1,0 +1,11 @@
+{
+  "calculator": {
+    "enabled": true
+  },
+  "dankActions": {
+    "enabled": true
+  },
+  "dankHooks": {
+    "enabled": true
+  }
+}
