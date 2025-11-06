@@ -29,15 +29,8 @@ done
 cat > "$README_FILE" << 'EOF'
 # Phyxashun's Dotfiles
 
-
 [![Arch Linux](https://img.shields.io/badge/OS-Arch%20Linux-blue?logo=archlinux)](https://archlinux.org)
-
-[![Niri](https://img.shields.io/badge/Niri-Window_Manager-7C3AED?style=for-the-badge&logo=wayland&logoColor=white)] (https://github.com/YaLTeR/niri) 
-[![Wayland](https://img.shields.io/badge/Wayland-Display_Protocol-FFBC00?style=for-the-badge&logo=wayland&logoColor=black)] (https://wayland.freedesktop.org)
-
-
-[![Arch Linux](https://img.shields.io/badge/OS-Arch%20Linux-blue?logo=archlinux)](https://archlinux.org)
-[![Niri](https://img.shields.io/badge/WM-Niri-7C3AED?logo=wayland)](https://github.com/YaLTeR/niri)
+[![Niri](https://img.shields.io/badge/WM-Niri-7C3AED?logo=wayland&logoColor=white)](https://github.com/YaLTeR/niri)
 [![Wayland](https://img.shields.io/badge/Protocol-Wayland-FFBC00?logo=wayland)](https://wayland.freedesktop.org/)
 [![Ghostty](https://img.shields.io/badge/Terminal-Ghostty-FF6B6B?logo=gnometerminal)](https://github.com/ghostty-org/ghostty)
 [![Fish Shell](https://img.shields.io/badge/Shell-Fish-4EAA25?logo=fishshell)](https://fishshell.com)  
