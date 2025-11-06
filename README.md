@@ -1,13 +1,48 @@
 # Phyxashun's Dotfiles
 
-[![Arch Linux](https://img.shields.io/badge/OS-Arch%20Linux-blue?logo=archlinux)](https://archlinux.org)
-[![Niri](https://img.shields.io/badge/Niri-Window_Manager-7C3AED?style=for-the-badge&logo=wayland&logoColor=white)] (https://github.com/YaLTeR/niri) 
-[![Wayland](https://img.shields.io/badge/Wayland-Display_Protocol-FFBC00?style=for-the-badge&logo=wayland&logoColor=black)] (https://wayland.freedesktop.org)
+# Dotfiles Badges
 
-[![Ghostty](https://img.shields.io/badge/Ghostty-Terminal-FF6B6B?style=for-the-badge&logo=gnometerminal&logoColor=white)] (https://ghostty.org)
-[![Fish Shell](https://img.shields.io/badge/Shell-Fish-4EAA25?logo=fishshell)](https://fishshell.com)  
-[![Starship](https://img.shields.io/badge/Starship-Prompt-DD0B78?style=for-the-badge&logo=starship&logoColor=white)] (https://starship.rs)
-[![GNU Stow](https://img.shields.io/badge/Tool-GNU%20Stow-339933?logo=gnu)](https://www.gnu.org/software/stow/)
+## Window Manager & Desktop
+[![Arch Linux](https://img.shields.io/badge/OS-Arch%20Linux-blue?logo=archlinux)](https://archlinux.org)
+[![Niri](https://img.shields.io/badge/WM-Niri-7C3AED?logo=wayland)](https://github.com/YaLTeR/niri)
+[![Wayland](https://img.shields.io/badge/Protocol-Wayland-FFBC00?logo=wayland)](https://wayland.freedesktop.org/)
+
+## Terminals
+[![Ghostty](https://img.shields.io/badge/Terminal-Ghostty-FF6B6B?logo=gnometerminal)](https://github.com/ghostty-org/ghostty)
+[![WezTerm](https://img.shields.io/badge/Terminal-WezTerm-4E49EE?logo=windowsterminal)](https://wezfurlong.org/wezterm/)
+[![Alacritty](https://img.shields.io/badge/Terminal-Alacritty-F46D01?logo=alacritty)](https://alacritty.org/)
+[![Kitty](https://img.shields.io/badge/Terminal-Kitty-00ADD8?logo=gnometerminal)](https://sw.kovidgoyal.net/kitty/)
+
+## Shell & Prompt
+[![Starship](https://img.shields.io/badge/Prompt-Starship-DD0B78?logo=starship)](https://starship.rs/)
+
+## Browsers
+[![Firefox](https://img.shields.io/badge/Browser-Firefox-FF7139?logo=firefox)](https://www.mozilla.org/firefox/)
+[![Zen Browser](https://img.shields.io/badge/Browser-Zen-6366F1?logo=firefoxbrowser)](https://zen-browser.app/)
+
+## Productivity
+[![Geary](https://img.shields.io/badge/Mail-Geary-4A90D9?logo=gnome)](https://wiki.gnome.org/Apps/Geary)
+[![GNOME Calculator](https://img.shields.io/badge/Calculator-GNOME-4A86CF?logo=gnome)](https://wiki.gnome.org/Apps/Calculator)
+[![Nautilus](https://img.shields.io/badge/Files-Nautilus-4A86CF?logo=gnome)](https://wiki.gnome.org/Apps/Files)
+
+## System Tools
+[![PulseAudio](https://img.shields.io/badge/Audio-PulseAudio-DC143C?logo=pulseaudio)](https://www.freedesktop.org/wiki/Software/PulseAudio/)
+[![NetworkManager](https://img.shields.io/badge/Network-NetworkManager-0078D4?logo=linux)](https://networkmanager.dev/)
+[![Blueman](https://img.shields.io/badge/Bluetooth-Blueman-0082FC?logo=bluetooth)](https://github.com/blueman-project/blueman)
+[![Polkit MATE](https://img.shields.io/badge/Auth-Polkit%20MATE-87CF3E?logo=linux)](https://github.com/mate-desktop/mate-polkit)
+
+## Utilities
+[![cliphist](https://img.shields.io/badge/Clipboard-cliphist-6366F1?logo=clipboard)](https://github.com/sentriz/cliphist)
+[![Steam](https://img.shields.io/badge/Gaming-Steam-000000?logo=steam)](https://store.steampowered.com/)
+[![Zoom](https://img.shields.io/badge/Video-Zoom-2D8CFF?logo=zoom)](https://zoom.us/)
+
+## Desktop Environment
+[![Qt](https://img.shields.io/badge/Framework-Qt-41CD52?logo=qt)](https://www.qt.io/)
+[![GTK3](https://img.shields.io/badge/Toolkit-GTK3-4A86CF?logo=gnome)](https://www.gtk.org/)
+
+## Custom Tools
+[![DMS](https://img.shields.io/badge/Desktop-DMS-8B5CF6?logo=linux)](https://github.com/yourusername/dms)
+[![QuickShell](https://img.shields.io/badge/Shell-QuickShell-06B6D4?logo=linux)](https://github.com/outfoxxed/quickshell)
 
 > Personal configuration repository for Arch Linux using Niri, DankMaterialShell, Fish, Ghostty, Starship, and more. Managed with GNU Stow.
 
