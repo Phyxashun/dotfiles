@@ -9,13 +9,11 @@ sleep 0.5
 # Get the Zed window ID
 ZED_ID=$(niri msg --json windows | jq -r '.[] | select(.app_id == "zed") | .id')
 
-# Set the window to the desired temporary large width (e.g., 1200 pixels) and height (e.g. 800)
-niri msg action set-window-width --window-id "$ZED_ID" fixed 1200
-niri msg action set-window-height --window-id "$ZED_ID" fixed 800
+# Set the window to the desired temporary large width (e.g., 1200 pixels)
+niri msg action set-column-width --window-id "$ZED_ID" fixed 1200
 
 # Wait another moment to show the temporary size
 sleep 1
 
-# Reset the window height and width back to automatic/default
-niri msg action set-window-width --window-id "$ZED_ID" auto
-niri msg action set-window-height --window-id "$ZED_ID" auto
+# Reset the window width back to automatic/default
+niri msg action set-column-width --window-id "$ZED_ID" auto
