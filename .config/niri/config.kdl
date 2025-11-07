@@ -167,6 +167,21 @@ window-rule {
     open-floating false
 }
 
+// Automatically mark the Zed editor as the active window in its column on opening.
+// This is the correct method for recent Niri versions (e.g., 25.08).
+window-rule {
+    match app-id=r#"^dev.zed.Zed$"#
+    match app-id="zeditor"
+    open-focused true
+}
+
+// Alternative match using a simpler app-id, if the above doesn't work for your installation.
+window-rule {
+    match app-id=r#"^Zed$"#
+    match app-id="zeditor"
+    open-focused true
+}
+
 // --- Floating Applications ---
 window-rule {
     match app-id=r#"^gnome-calculator$"#

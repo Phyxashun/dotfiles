@@ -1,5 +1,5 @@
-function zed
-    command zeditor $argv &
+function zed-f
+    zed $argv & disown
     sleep 0.6
     niri msg action set-column-width "-1%"
     sleep 0.3
