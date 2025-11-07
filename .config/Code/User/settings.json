@@ -11,5 +11,11 @@
     "git.confirmSync": false,
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
-    "git.openRepositoryInParentFolders": "always"
+    "git.openRepositoryInParentFolders": "always",
+    "[fish]": {
+        "editor.defaultFormatter": "bmalehorn.vscode-fish"
+    },
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true
 }
