@@ -34,7 +34,7 @@ set -gx EDITOR nvim
 set -gx VISUAL code
 set -gx TERM tmux-256color
 set -gx SSH_AUTH_SOCK /home/phyxashun/.ssh/agent/s.lHgXVr00zz.agent.xqlR0kssWW
-set -gx ZED_DEVICE_ID 0x10de
+set -gx ZED_DEVICE_ID 0x1b80
 
 # Path additions (add your custom paths here)
 fish_add_path ~/.local/bin
