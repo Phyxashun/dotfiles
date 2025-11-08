@@ -181,7 +181,7 @@
   "dockPosition": 1,
   "dockSpacing": 8,
   "dockBottomGap": -16,
-  "dockIconSize": 64,
+  "dockIconSize": 36,
   "dockIndicatorStyle": "line",
   "notificationOverlayEnabled": false,
   "dankBarAutoHide": false,

@@ -6,6 +6,7 @@
 // ============================================================================
 // META CONFIGURATION
 // ============================================================================
+prefer-no-csd
 
 config-notification {
     disable-failed
@@ -15,14 +16,11 @@ hotkey-overlay {
     skip-at-startup
 }
 
-prefer-no-csd
-
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 // ============================================================================
 // DISPLAY OUTPUTS
 // ============================================================================
-
 output "Samsung Electric Company S34CG50 HNTX100328" {
     mode "3440x1440@100.000"
     scale 1
@@ -41,11 +39,12 @@ output "Samsung Electric Company S24E200 HCHJ702365" {
 // ============================================================================
 // INPUT DEVICES
 // ============================================================================
-
 input {
     keyboard {
         xkb {
         }
+        repeat-rate 35
+        repeat-delay 200
         numlock
     }
     touchpad {
@@ -90,7 +89,7 @@ spawn-at-startup "niriusd"
 // ============================================================================
 
 layout {
-    gaps 5
+    gaps 8
     background-color "transparent"
     center-focused-column "never"
     preset-column-widths {
@@ -100,24 +99,25 @@ layout {
     }
     default-column-width { proportion 0.5; }
     border {
-        off
-        width 4
-        active-color   "#707070"
-        inactive-color "#d0d0d0"
+        
+        width 1
+        active-color   "#808080"
+        inactive-color "#505050"
         urgent-color   "#cc4444"
     }
     focus-ring {
-        width 2
+        width 1
         active-color   "#808080"
         inactive-color "#505050"
     }
     shadow {
         on
-        softness 30
-        spread 10
-        offset x=5 y=5
+        softness 40
+        spread 0
+        offset x=0 y=10
         color "#000000e0"
         inactive-color "#000000e0"
+        draw-behind-window true
     }
     struts {
     }
@@ -213,10 +213,10 @@ window-rule {
     open-floating true
 }
 
-// --- Global Rules (Applied Last) ---
+// --- Global Rules ---
 window-rule {
     match is-active=false
-    opacity 0.9
+    opacity 0.90
 }
 
 window-rule {
@@ -229,12 +229,14 @@ window-rule {
 // ============================================================================
 
 animations {
+    slowdown 1.0
+
     workspace-switch {
         spring damping-ratio=0.80 stiffness=523 epsilon=0.0001
     }
     window-open {
         duration-ms 150
-        curve "ease-out-expo"
+        curve "linear"
     }
     window-close {
         duration-ms 150
