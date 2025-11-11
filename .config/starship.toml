@@ -1,19 +1,4 @@
-# ~/.config/starship.toml
-
-add_newline = true
-command_timeout = 1000
-palette = "catppuccin_mocha"
-
-# A minimal left prompt
-#format = """$directory$character"""
-
-# move the rest of the prompt to the right
-#right_format = """$all"""
-
 [aws]
-format = '[$symbol(profile: "$profile" )(\(region: $region\) )]($style)'
-disabled = false
-style = 'bold blue'
 symbol = " "
 
 [buf]
@@ -24,10 +9,6 @@ symbol = " "
 
 [c]
 symbol = " "
-
-[character]
-vicmd_symbol = "[N] >>>"
-success_symbol = '[➜](bold green)'
 
 [cpp]
 symbol = " "
@@ -50,12 +31,8 @@ symbol = " "
 [directory]
 read_only = " 󰌾"
 
-[directory.substitutions]
-'~/tests/starship-custom' = 'work-project'
-
 [docker_context]
 symbol = " "
-disabled = true
 
 [elixir]
 symbol = " "
@@ -77,13 +54,12 @@ symbol = " "
 
 [git_branch]
 symbol = " "
-format = '[$symbol$branch(:$remote_branch)]($style)'
 
 [git_commit]
 tag_symbol = '  '
 
 [golang]
-format = '[ ](bold cyan)'
+symbol = " "
 
 [gradle]
 symbol = " "
@@ -111,15 +87,6 @@ symbol = " "
 
 [kotlin]
 symbol = " "
-
-[kubernetes]
-symbol = '☸ '
-disabled = true
-detect_files = ['Dockerfile']
-format = '[$symbol$context( \($namespace\))]($style) '
-contexts = [
-  { context_pattern = "arn:aws:eks:us-west-2:577926974532:cluster/zd-pvc-omer", style = "green", context_alias = "omerxx", symbol = " " },
-]
 
 [lua]
 symbol = " "
@@ -231,31 +198,3 @@ symbol = " "
 
 [zig]
 symbol = " "
-
-[palettes.catppuccin_mocha]
-rosewater = "#f5e0dc"
-flamingo = "#f2cdcd"
-pink = "#f5c2e7"
-mauve = "#cba6f7"
-red = "#f38ba8"
-maroon = "#eba0ac"
-peach = "#fab387"
-yellow = "#f9e2af"
-green = "#a6e3a1"
-teal = "#94e2d5"
-sky = "#89dceb"
-sapphire = "#74c7ec"
-blue = "#89b4fa"
-lavender = "#b4befe"
-text = "#cdd6f4"
-subtext1 = "#bac2de"
-subtext0 = "#a6adc8"
-overlay2 = "#9399b2"
-overlay1 = "#7f849c"
-overlay0 = "#6c7086"
-surface2 = "#585b70"
-surface1 = "#45475a"
-surface0 = "#313244"
-base = "#1e1e2e"
-mantle = "#181825"
-crust = "#11111b"
