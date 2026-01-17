@@ -1,26 +1,11 @@
-/*
-    Niri Configuration File
-    For documentation, see https://github.com/YaLTeR/niri/wiki/Configuration:-Introduction
-*/
-
-// ============================================================================
-// META CONFIGURATION
-// ============================================================================
-prefer-no-csd
-
+// This config is in the KDL format: https://kdl.dev
+// "/-" comments out the following node.
+// Check the wiki for a full description of the configuration:
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Introduction
 config-notification {
     disable-failed
 }
-
-hotkey-overlay {
-    skip-at-startup
-}
-
-screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
-
-// ============================================================================
-// DISPLAY OUTPUTS
-// ============================================================================
+// Outputs from existing configuration
 output "Samsung Electric Company S34CG50 HNTX100328" {
     mode "3440x1440@100.000"
     scale 1
@@ -36,15 +21,20 @@ output "Samsung Electric Company S24E200 HCHJ702365" {
     position x=-1080 y=0
 }
 
-// ============================================================================
-// INPUT DEVICES
-// ============================================================================
+
+gestures {
+    hot-corners {
+        off
+    }
+}
+
+// Input device configuration.
+// Find the full list of options on the wiki:
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Input
 input {
     keyboard {
         xkb {
         }
-        repeat-rate 35
-        repeat-delay 200
         numlock
     }
     touchpad {
@@ -53,190 +43,113 @@ input {
     }
     trackpoint {
     }
-    mod-key "Super"
 }
+// You can configure outputs by their name, which you can find
+// by running `niri msg outputs` while inside a niri instance.
+// The built-in laptop monitor is usually called "eDP-1".
+// Find more information on the wiki:
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Outputs
+// Remember to uncomment the node by removing "/-"!
 
-gestures {
-    hot-corners {
-        off
-    }
-}
-
-// ============================================================================
-// ENVIRONMENT VARIABLES
-// ============================================================================
-
-environment {
-    XDG_CURRENT_DESKTOP "niri"
-    QT_QPA_PLATFORM "wayland"
-    ELECTRON_OZONE_PLATFORM_HINT "auto"
-    QT_QPA_PLATFORMTHEME "gtk3"
-    QT_QPA_PLATFORMTHEME_QT6 "gtk3"
-    TERMINAL "ghostty"
-}
-
-// ============================================================================
-// STARTUP APPLICATIONS
-// ============================================================================
-
-spawn-at-startup "bash" "-c" "wl-paste --watch cliphist store &"
-spawn-at-startup "dms" "run"
-spawn-at-startup "/usr/lib/mate-polkit/polkit-mate-authentication-agent-1"
-spawn-at-startup "niriusd"
-
-// ============================================================================
-// LAYOUT & APPEARANCE
-// ============================================================================
-
+// Settings that influence how windows are positioned and sized.
+// Find more information on the wiki:
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
 layout {
-    gaps 8
+    // Set gaps around windows in logical pixels.
+    gaps 5
     background-color "transparent"
+    // When to center a column when changing focus, options are:
+    // - "never", default behavior, focusing an off-screen column will keep at the left
+    //   or right edge of the screen.
+    // - "always", the focused column will always be centered.
+    // - "on-overflow", focusing a column will center it if it doesn't fit
+    //   together with the previously focused column.
     center-focused-column "never"
+    // You can customize the widths that "switch-preset-column-width" (Mod+R) toggles between.
     preset-column-widths {
+        // Proportion sets the width as a fraction of the output width, taking gaps into account.
+        // For example, you can perfectly fit four windows sized "proportion 0.25" on an output.
+        // The default preset widths are 1/3, 1/2 and 2/3 of the output.
         proportion 0.33333
         proportion 0.5
         proportion 0.66667
+        // Fixed sets the width in logical pixels exactly.
+        // fixed 1920
     }
+    // You can also customize the heights that "switch-preset-window-height" (Mod+Shift+R) toggles between.
+    // preset-window-heights { }
+    // You can change the default width of the new windows.
     default-column-width { proportion 0.5; }
+    // If you leave the brackets empty, the windows themselves will decide their initial width.
+    // default-column-width {}
+    // By default focus ring and border are rendered as a solid background rectangle
+    // behind windows. That is, they will show up through semitransparent windows.
+    // This is because windows using client-side decorations can have an arbitrary shape.
+    //
+    // If you don't like that, you should uncomment `prefer-no-csd` below.
+    // Niri will draw focus ring and border *around* windows that agree to omit their
+    // client-side decorations.
+    //
+    // Alternatively, you can override it with a window rule called
+    // `draw-border-with-background`.
     border {
-        
-        width 1
-        active-color   "#808080"
-        inactive-color "#505050"
-        urgent-color   "#cc4444"
+        off
+        width 4
+        active-color   "#707070"      // Neutral gray
+        inactive-color "#d0d0d0"      // Light gray
+        urgent-color   "#cc4444"      // Softer red
     }
     focus-ring {
-        width 1
-        active-color   "#808080"
-        inactive-color "#505050"
+        width 2
+        active-color   "#808080"      // Medium gray
+        inactive-color "#505050"      // Dark gray
     }
     shadow {
-        on
-        softness 40
-        spread 0
-        offset x=0 y=10
-        color "#000000e0"
-        inactive-color "#000000e0"
-        draw-behind-window true
+        softness 30
+        spread 5
+        offset x=0 y=5
+        color "#0007"
     }
     struts {
     }
 }
-
-// ============================================================================
-// LAYER RULES
-// ============================================================================
-
 layer-rule {
     match namespace="^quickshell$"
     place-within-backdrop true
 }
-
-// ============================================================================
-// WINDOW RULES
-// ============================================================================
-
-// --- Terminal Applications ---
-window-rule {
-    match app-id=r#"^org\.wezfurlong\.wezterm$"#
-    default-column-width {}
+overview {
+    workspace-shadow {
+        off
+    }
 }
-
-window-rule {
-    match app-id=r#"^org\.wezfurlong\.wezterm$"#
-    match app-id="Alacritty"
-    match app-id="zen"
-    match app-id="com.mitchellh.ghostty"
-    match app-id="kitty"
-    draw-border-with-background false
+// Add lines like this to spawn processes at startup.
+// Note that running niri as a session supports xdg-desktop-autostart,
+// which may be more convenient to use.
+// See the binds section below for more spawn examples.
+// This line starts waybar, a commonly used bar for Wayland compositors.
+spawn-at-startup "bash" "-c" "wl-paste --watch cliphist store &"
+spawn-at-startup "dms" "run"
+spawn-at-startup "/usr/lib/mate-polkit/polkit-mate-authentication-agent-1"
+environment {
+  XDG_CURRENT_DESKTOP "niri"
+  QT_QPA_PLATFORM "wayland"
+  ELECTRON_OZONE_PLATFORM_HINT "auto"
+  QT_QPA_PLATFORMTHEME "gtk3"
+  QT_QPA_PLATFORMTHEME_QT6 "gtk3"
+  TERMINAL "ghostty"
 }
-
-// --- GNOME Applications ---
-window-rule {
-    match app-id=r#"^org\.gnome\."#
-    draw-border-with-background false
-    geometry-corner-radius 12
-    clip-to-geometry true
+hotkey-overlay {
+    skip-at-startup
 }
-
-window-rule {
-    match app-id=r#"^gnome-control-center$"#
-    match app-id=r#"^pavucontrol$"#
-    match app-id=r#"^nm-connection-editor$"#
-    default-column-width { proportion 0.5; }
-    open-floating false
-}
-
-// Automatically mark the Zed editor as the active window in its column on opening.
-// This is the correct method for recent Niri versions (e.g., 25.08).
-window-rule {
-    match app-id=r#"^dev.zed.Zed$"#
-    match app-id="zeditor"
-    open-focused true
-}
-
-// Alternative match using a simpler app-id, if the above doesn't work for your installation.
-window-rule {
-    match app-id=r#"^Zed$"#
-    match app-id="zeditor"
-    open-focused true
-}
-
-// --- Floating Applications ---
-window-rule {
-    match app-id=r#"^gnome-calculator$"#
-    match app-id=r#"^galculator$"#
-    match app-id=r#"^blueman-manager$"#
-    match app-id=r#"^org\.gnome\.Nautilus$"#
-    match app-id=r#"^steam$"#
-    match app-id=r#"^xdg-desktop-portal$"#
-    open-floating true
-}
-
-window-rule {
-    match app-id="Geary"
-    default-column-width { proportion 0.33333; }
-    default-window-height { proportion 0.7; }
-    open-floating true
-}
-
-// --- Browser-Specific ---
-window-rule {
-    match app-id=r#"firefox$"#
-    open-on-output "Samsung Electric Company S24E200 HCHJ702365"
-    default-column-width { proportion 1.0; }
-}
-
-window-rule {
-    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
-    match app-id="zoom"
-    open-floating true
-}
-
-// --- Global Rules ---
-window-rule {
-    match is-active=false
-    opacity 0.90
-}
-
-window-rule {
-    geometry-corner-radius 12
-    clip-to-geometry true
-}
-
-// ============================================================================
-// ANIMATIONS
-// ============================================================================
-
+prefer-no-csd
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 animations {
-    slowdown 1.0
-
     workspace-switch {
         spring damping-ratio=0.80 stiffness=523 epsilon=0.0001
     }
     window-open {
         duration-ms 150
-        curve "linear"
+        curve "ease-out-expo"
     }
     window-close {
         duration-ms 150
@@ -262,21 +175,61 @@ animations {
         spring damping-ratio=0.85 stiffness=800 epsilon=0.0001
     }
 }
-
-// ============================================================================
-// UI FEATURES
-// ============================================================================
-
-overview {
-    workspace-shadow {
-        off
-    }
+// Window rules let you adjust behavior for individual windows.
+// Find more information on the wiki:
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Window-Rules
+// Work around WezTerm's initial configure bug
+// by setting an empty default-column-width.
+window-rule {
+    // This regular expression is intentionally made as specific as possible,
+    // since this is the default config, and we want no false positives.
+    // You can get away with just app-id="wezterm" if you want.
+    match app-id=r#"^org\.wezfurlong\.wezterm$"#
+    default-column-width {}
 }
-
-// ============================================================================
-// KEYBINDINGS
-// ============================================================================
-
+window-rule {
+    match app-id=r#"^org\.gnome\."#
+    draw-border-with-background false
+    geometry-corner-radius 12
+    clip-to-geometry true
+}
+window-rule {
+    match app-id=r#"^gnome-control-center$"#
+    match app-id=r#"^pavucontrol$"#
+    match app-id=r#"^nm-connection-editor$"#
+    default-column-width { proportion 0.5; }
+    open-floating false
+}
+window-rule {
+    match app-id=r#"^gnome-calculator$"#
+    match app-id=r#"^galculator$"#
+    match app-id=r#"^blueman-manager$"#
+    match app-id=r#"^org\.gnome\.Nautilus$"#
+    match app-id=r#"^steam$"#
+    match app-id=r#"^xdg-desktop-portal$"#
+    open-floating true
+}
+window-rule {
+    match app-id=r#"^org\.wezfurlong\.wezterm$"#
+    match app-id="Alacritty"
+    match app-id="zen"
+    match app-id="com.mitchellh.ghostty"
+    match app-id="kitty"
+    draw-border-with-background false
+}
+window-rule {
+    match is-active=false
+    opacity 0.9
+}
+window-rule {
+    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    match app-id="zoom"
+    open-floating true
+}
+window-rule {
+    geometry-corner-radius 12
+    clip-to-geometry true
+}
 binds {
     // === System & Overview ===
     Mod+D { spawn "niri" "msg" "action" "toggle-overview"; }
@@ -284,7 +237,6 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // === Application Launchers ===
-    Mod+Alt+M hotkey-overlay-title="Open Mail Client" { spawn "geary"; }
     Mod+T hotkey-overlay-title="Open Terminal" { spawn "ghostty"; }
     Mod+Space hotkey-overlay-title="Application Launcher" {
         spawn "dms" "ipc" "call" "spotlight" "toggle";
@@ -328,17 +280,11 @@ binds {
     }
 
     // === Brightness Controls ===
-    XF86KbdBrightnessUp allow-when-locked=true {
-        spawn "kbdbrite.sh" "up";
-    }
-    XF86KbdBrightnessDown allow-when-locked=true {
-        spawn "kbdbrite.sh" "down";
-    }
     XF86MonBrightnessUp allow-when-locked=true {
-        spawn "dms" "ipc" "call" "brightness" "increment" "5" "";
+       spawn "dms" "ipc" "call" "brightness" "increment" "5" "";
     }
     XF86MonBrightnessDown allow-when-locked=true {
-        spawn "dms" "ipc" "call" "brightness" "decrement" "5" "";
+       spawn "dms" "ipc" "call" "brightness" "decrement" "5" "";
     }
 
     // === Window Management ===
@@ -376,7 +322,6 @@ binds {
     Mod+Ctrl+End  { move-column-to-last; }
 
     // === Monitor Navigation ===
-    // Mod+Ctrl+HJKL/Arrows - Focus monitor
     Mod+Ctrl+Left  { focus-monitor-left; }
     //Mod+Ctrl+Down  { focus-monitor-down; }
     //Mod+Ctrl+Up    { focus-monitor-up; }
@@ -387,7 +332,6 @@ binds {
     Mod+Ctrl+L     { focus-monitor-right; }
 
     // === Move to Monitor ===
-    // Mod+Shift+Ctrl+HJKL/Arrows - Move window to monitor
     Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
     Mod+Shift+Ctrl+Down  { move-column-to-monitor-down; }
     Mod+Shift+Ctrl+Up    { move-column-to-monitor-up; }
@@ -477,16 +421,12 @@ binds {
     Print { screenshot; }
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
-
     // === System Controls ===
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
     Mod+Shift+P { power-off-monitors; }
 }
-
-// ============================================================================
-// DEBUG SETTINGS
-// ============================================================================
-
 debug {
     honor-xdg-activation-with-invalid-serial
 }
+
+include "dms/outputs.kdl"

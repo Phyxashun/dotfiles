@@ -1,12 +1,11 @@
 # Font Configuration
-font-family = FiraCode Nerd Font
-font-size = 16
+font-size = 12
 
 # Window Configuration
 window-decoration = false
 window-padding-x = 12
 window-padding-y = 12
-background-opacity = 0.85
+background-opacity = 1.0
 background-blur-radius = 32
 
 # Cursor Configuration
@@ -41,9 +40,12 @@ unfocused-split-fill = #44464f
 gtk-titlebar = false
 
 # Shell integration
-shell-integration = fish
+shell-integration = detect
 shell-integration-features = cursor,sudo,title,no-cursor
 keybind = shift+enter=text:\n
+
+# Rando stuff
+gtk-single-instance = true
 
 # Dank color generation
 config-file = ./config-dankcolors

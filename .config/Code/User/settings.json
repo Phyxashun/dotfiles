@@ -1,11 +1,4 @@
 {
-    "workbench.colorTheme": "Best Themes - Gruvbox Concoctis Dark",
-    "workbench.iconTheme": "gruvbox-material-icon-theme",
-    "workbench.productIconTheme": "macos-modern",
-    "terminal.integrated.fontFamily": "'FiraCode Nerd Font', monospace",
-    "editor.fontFamily": "'FiraCode Nerd Font', monospace",
-    "editor.fontSize": 16,
-    "editor.fontLigatures": true,
     "git.enableSmartCommit": true,
     "git.autofetch": true,
     "git.confirmSync": false,
@@ -15,7 +8,34 @@
     "[fish]": {
         "editor.defaultFormatter": "bmalehorn.vscode-fish"
     },
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "files.trimTrailingWhitespaceInRegexAndStrings": false,
+    "[typescript]": {
+        "files.autoSave": "onFocusChange",
+        "editor.defaultFormatter": "vscode.typescript-language-features",
+        "editor.wordWrap": "on"
+    },
+    "[javascript]": {
+        "files.autoSave": "onFocusChange",
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "editor.fontSize": 15,
+    "editor.fontFamily": "'Hack Nerd Font', monospace",
+    "editor.smoothScrolling": true,
+    "terminal.integrated.fontFamily": "'Hack Nerd Font'",
+    "terminal.integrated.lineHeight": 1.10,
+    "editor.fontLigatures": true,
+    "editor.lineHeight": 1.5,
+    "editor.minimap.enabled": false,
+    "editor.tabSize": 2,
+    "workbench.iconTheme": "gruvbox-material-icon-theme",
+    "editor.semanticTokenColorCustomizations": {
+        "enabled": true
+    },
+    "editor.semanticHighlighting.enabled": true,
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
-    "editor.formatOnType": true
+    "editor.formatOnType": true,
+    "errorLens.enabled": true
 }

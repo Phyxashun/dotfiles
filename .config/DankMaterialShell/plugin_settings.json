@@ -1,11 +1,15 @@
 {
   "calculator": {
-    "enabled": true
+    "enabled": true,
+    "trigger": "="
   },
   "dankActions": {
     "enabled": true
   },
   "dankHooks": {
+    "enabled": true
+  },
+  "emojiLauncher": {
     "enabled": true
   }
 }

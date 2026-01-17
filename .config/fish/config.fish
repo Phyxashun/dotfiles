@@ -6,6 +6,13 @@
 # Suppress fish greeting
 set -g fish_greeting
 
+# Start ssh-agent if not already started
+if not pgrep -u $USER ssh-agent > /dev/null
+    eval (ssh-agent -c)
+    set -Ux SSH_AUTH_SOCK $SSH_AUTH_SOCK
+    set -Ux SSH_AGENT_PID $SSH_AGENT_PID
+end
+
 # ============================================
 # Tool Installation
 # ============================================

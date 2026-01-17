@@ -1,3 +1,6 @@
+// ! Auto-generated file. Do not edit directly.
+// Remove `include "dms/colors.kdl"` from your config to override.
+
 layout {
     background-color "transparent"
 
@@ -25,5 +28,12 @@ layout {
 
     insert-hint {
         color "#fdba4a80"
+    }
+}
+
+recent-windows {
+    highlight {
+        active-color   "#614000"
+        urgent-color   "#ffb4ab"
     }
 }

@@ -32,14 +32,14 @@ end
 function _internal_header --argument-names message frame_color text_color bg_color
     # You can switch frame to "▒", "▓", "█", "#", "*", etc.
     set -l frame_char "░"
-
+    #set -l terminal_width (math (tput cols) - 2)
     # Set defaults
     test -z "$frame_color"; and set frame_color yellow
     test -z "$text_color"; and set text_color white
     test -z "$bg_color"; and set bg_color normal #black
 
     # Get terminal width once
-    set -l max_frame_width (math (tput cols) - 2)
+    set -l max_frame_width 65 # $terminal_width
     set -l center_width (math $max_frame_width - 2)
 
     # Pre-compute frame elements

@@ -2,4 +2,25 @@
 <xbel version="1.0"
       xmlns:bookmark="http://www.freedesktop.org/standards/desktop-bookmarks"
       xmlns:mime="http://www.freedesktop.org/standards/shared-mime-info"
-></xbel>
+>
+  <bookmark href="smb://10.27.27.54/pool/" added="2025-11-15T02:34:29.454665Z" modified="2025-11-15T02:34:29.454668Z" visited="2025-11-15T02:34:29.454666Z">
+    <title>pool on 10.27.27.54</title>
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <bookmark:applications>
+          <bookmark:application name="org.gnome.Nautilus" exec="&apos;org.gnome.Nautilus %u&apos;" modified="2025-11-15T02:34:29.454667Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="smb://10.27.27.54/" added="2025-11-16T06:05:39.284142Z" modified="2025-11-16T06:05:39.284144Z" visited="2025-11-16T06:05:39.284142Z">
+    <title>Windows shares on 10.27.27.54</title>
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <bookmark:applications>
+          <bookmark:application name="org.gnome.Nautilus" exec="&apos;org.gnome.Nautilus %u&apos;" modified="2025-11-16T06:05:39.284143Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+</xbel>
