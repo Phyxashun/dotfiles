@@ -21,6 +21,9 @@ output "Samsung Electric Company S24E200 HCHJ702365" {
     position x=-1080 y=0
 }
 
+workspace "2" {
+    open-on-output "Samsung Electric Company S24E200 HCHJ702365"
+}
 
 gestures {
     hot-corners {
